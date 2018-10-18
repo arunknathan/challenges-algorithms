@@ -9,15 +9,10 @@ public class GoldBadgeAlgorithmUtil {
 	}
 
 	public int beautifulDays(int i, int j, int k) {
-		return (int) java.util.stream.IntStream.range(i, j).parallel().filter(x -> isBeautiful(k, x)).count();
+		return (int) java.util.stream.IntStream.range(i, j).parallel().filter(x -> isBeautifulDay(k, x)).count();
 	}
 
-	private boolean isBeautiful(int k, int x) {
-		System.out.println("x=" + x + ";trimmedReverse="
-				+ Integer.parseInt(new StringBuilder("" + x).reverse().toString().replaceAll("^0+", "")) + ";k=" + k
-				+ ";result="
-				+ (Math.abs(x - Integer.parseInt(new StringBuilder("" + x).reverse().toString().replaceAll("^0+", "")))
-						% k));
+	private boolean isBeautifulDay(int k, int x) {
 		return Math.abs(x - Integer.parseInt(new StringBuilder("" + x).reverse().toString().replaceAll("^0+", "")))
 				% k == 0;
 	}
