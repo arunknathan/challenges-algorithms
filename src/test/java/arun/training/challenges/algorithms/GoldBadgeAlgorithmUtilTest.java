@@ -30,4 +30,10 @@ public class GoldBadgeAlgorithmUtilTest {
 		Assert.assertEquals(util.saveThePrisoner(3, 7, 3), 3);
 		Assert.assertEquals(util.saveThePrisoner(7, 7, 1), 7);
 	}
+
+	@Test
+	public void testCircularArrayRotation() {
+		Assert.assertEquals(util.circularArrayRotation(new int[] { 1, 2, 3 }, 2, new int[] { 0, 1, 2 }),
+				new int[] { 2, 3, 1 });
+	}
 }

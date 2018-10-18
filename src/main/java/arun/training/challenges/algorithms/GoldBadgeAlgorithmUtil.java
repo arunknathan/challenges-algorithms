@@ -1,6 +1,10 @@
 package arun.training.challenges.algorithms;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
+import java.util.List;
 
 public class GoldBadgeAlgorithmUtil {
 
@@ -37,6 +41,48 @@ public class GoldBadgeAlgorithmUtil {
 		last = (last % n);
 		last = (last == 0) ? n : last;
 		return last;
+	}
+
+	public int[] circularArrayRotation(int[] a, int k, int[] queries) {
+		class Node {
+			int value;
+			Node prev;
+		}
+
+		Node root = new Node();
+		Node current = root;
+		Node prev = null;
+		for (int i = 0; i < a.length - 1; i++) {
+			current.value = a[i];
+			prev = current;
+			current = new Node();
+			current.prev = prev;
+		}
+		current.value = a[a.length - 1];
+		root.prev = current;
+
+		current = root;
+		for (int i = 0; i <= k; i++) {
+			current = current.prev;
+		}
+
+		Node newRoot = current;
+
+		Deque<Node> deque = new ArrayDeque<>();
+		deque.add(newRoot);
+		while (current.prev != null) {
+			current = current.prev;
+			if (current == newRoot) {
+				break;
+			} else {
+				deque.addFirst(current);
+			}
+		}
+
+		List<Node> results = new ArrayList<>();
+		results.addAll(deque);
+
+		return Arrays.stream(queries).map(x -> results.get(x).value).toArray();
 	}
 
 }
