@@ -18,4 +18,9 @@ public class GoldBadgeAlgorithmUtilTest {
 		Assert.assertEquals(util.beautifulDays(20, 23, 6), 2);
 		Assert.assertEquals(util.beautifulDays(13, 45, 3), 32);
 	}
+
+	@Test
+	public void testViralAdvertising() {
+		Assert.assertEquals(util.viralAdvertising(3), 9);
+	}
 }

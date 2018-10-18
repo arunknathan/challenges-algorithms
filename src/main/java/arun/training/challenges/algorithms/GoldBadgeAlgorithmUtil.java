@@ -17,4 +17,17 @@ public class GoldBadgeAlgorithmUtil {
 				% k == 0;
 	}
 
+	public int viralAdvertising(int n) {
+		int recipients = 5;
+		int count = 0;
+
+		for (int i = 1; i <= n; i++) {
+			int liked = recipients / 2;
+			count += liked;
+			recipients = 3 * liked;
+		}
+
+		return count;
+	}
+
 }
