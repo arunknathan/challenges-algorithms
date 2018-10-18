@@ -23,4 +23,11 @@ public class GoldBadgeAlgorithmUtilTest {
 	public void testViralAdvertising() {
 		Assert.assertEquals(util.viralAdvertising(3), 9);
 	}
+
+	@Test
+	public void testSaveThePrisoner() {
+		Assert.assertEquals(util.saveThePrisoner(7, 19, 2), 6);
+		Assert.assertEquals(util.saveThePrisoner(3, 7, 3), 3);
+		Assert.assertEquals(util.saveThePrisoner(7, 7, 1), 7);
+	}
 }

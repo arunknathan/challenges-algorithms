@@ -30,4 +30,13 @@ public class GoldBadgeAlgorithmUtil {
 		return count;
 	}
 
+	public int saveThePrisoner(int n, int m, int s) {
+		int last = m % n;
+		last = (last == 0) ? n : last;
+		last = last + s - 1;
+		last = (last % n);
+		last = (last == 0) ? n : last;
+		return last;
+	}
+
 }
