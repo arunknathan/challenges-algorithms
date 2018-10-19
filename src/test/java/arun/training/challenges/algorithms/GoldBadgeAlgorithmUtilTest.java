@@ -36,4 +36,9 @@ public class GoldBadgeAlgorithmUtilTest {
 		Assert.assertEquals(util.circularArrayRotation(new int[] { 1, 2, 3 }, 2, new int[] { 0, 1, 2 }),
 				new int[] { 2, 3, 1 });
 	}
+
+	@Test
+	public void testPermutationEquation() {
+		Assert.assertEquals(util.permutationEquation(new int[] { 4, 3, 5, 1, 2 }), new int[] { 1, 3, 5, 4, 2 });
+	}
 }

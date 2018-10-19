@@ -4,7 +4,9 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GoldBadgeAlgorithmUtil {
 
@@ -83,6 +85,23 @@ public class GoldBadgeAlgorithmUtil {
 		results.addAll(deque);
 
 		return Arrays.stream(queries).map(x -> results.get(x).value).toArray();
+	}
+
+	public int[] permutationEquation(int[] p) {
+		int[] y = new int[p.length];
+		Map<Integer, Integer> map = getMap(p);
+		for (int i = 1; i <= y.length; i++) {
+			y[i - 1] = map.get(map.get(i));
+		}
+		return y;
+	}
+
+	private Map<Integer, Integer> getMap(int[] p) {
+		Map<Integer, Integer> map = new HashMap<>();
+		for (int i = 0; i < p.length; i++) {
+			map.put(p[i], 1 + i);
+		}
+		return map;
 	}
 
 }
