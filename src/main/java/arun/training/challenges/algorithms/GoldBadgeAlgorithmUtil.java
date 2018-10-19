@@ -89,19 +89,19 @@ public class GoldBadgeAlgorithmUtil {
 
 	public int[] permutationEquation(int[] p) {
 		int[] y = new int[p.length];
-		Map<Integer, Integer> map = getMap(p);
+		Map<Integer, Integer> cache = getCache(p);
 		for (int i = 1; i <= y.length; i++) {
-			y[i - 1] = map.get(map.get(i));
+			y[i - 1] = cache.get(cache.get(i));
 		}
 		return y;
 	}
 
-	private Map<Integer, Integer> getMap(int[] p) {
-		Map<Integer, Integer> map = new HashMap<>();
+	private Map<Integer, Integer> getCache(int[] p) {
+		Map<Integer, Integer> cache = new HashMap<>();
 		for (int i = 0; i < p.length; i++) {
-			map.put(p[i], 1 + i);
+			cache.put(p[i], 1 + i);
 		}
-		return map;
+		return cache;
 	}
 
 }
