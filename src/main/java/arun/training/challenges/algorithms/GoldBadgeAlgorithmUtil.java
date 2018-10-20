@@ -7,8 +7,6 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.IntPredicate;
-import java.util.function.IntUnaryOperator;
 
 public class GoldBadgeAlgorithmUtil {
 
@@ -159,15 +157,13 @@ public class GoldBadgeAlgorithmUtil {
 	}
 
 	public int findDigits(int n) {
-		return (int) (String.valueOf(n)).chars().parallel().map(x -> {
-			return Integer.parseInt(String.valueOf((char) x));
-		}).filter(x -> {
-			if (x == 1) {
+		return (int) (String.valueOf(n)).chars().parallel().map(x -> (char) x).filter(x -> {
+			if (x == '1') {
 				return true;
-			} else if (x == 0) {
+			} else if (x == '0') {
 				return false;
 			} else {
-				return (n % x == 0);
+				return (n % (x - '0') == 0);
 			}
 		}).count();
 	}
