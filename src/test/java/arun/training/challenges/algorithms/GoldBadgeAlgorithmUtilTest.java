@@ -41,4 +41,10 @@ public class GoldBadgeAlgorithmUtilTest {
 	public void testPermutationEquation() {
 		Assert.assertEquals(util.permutationEquation(new int[] { 4, 3, 5, 1, 2 }), new int[] { 1, 3, 5, 4, 2 });
 	}
+
+	@Test
+	public void testJumpingOnClouds() {
+		Assert.assertEquals(util.jumpingOnClouds(new int[] { 0, 0, 1, 0, 0, 1, 1, 0 }, 2), 92);
+		Assert.assertEquals(util.jumpingOnClouds(new int[] { 1, 1, 1, 0, 1, 1, 0, 0, 0, 0 }, 3), 78);
+	}
 }
