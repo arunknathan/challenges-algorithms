@@ -105,7 +105,6 @@ public class GoldBadgeAlgorithmUtil {
 	}
 
 	public int jumpingOnClouds(int[] c, int k) {
-		System.out.println(Arrays.toString(c) + ";step=" + k);
 		class CloudJumper {
 			private int[] clouds;
 			private int step;
@@ -119,7 +118,8 @@ public class GoldBadgeAlgorithmUtil {
 
 			@Override
 			public String toString() {
-				return Arrays.toString(clouds) + ";step=" + step + ";position=" + position + ";energy=" + energy;
+				return "{clouds:[" + Arrays.toString(clouds) + "],step:" + step + ",position:" + position + ",energy:"
+						+ energy + "}";
 			}
 
 			public CloudJumper init() {
@@ -135,7 +135,6 @@ public class GoldBadgeAlgorithmUtil {
 				if (clouds[position] == 1) {
 					energy -= 2;
 				}
-				System.out.println(this.toString());
 				return this;
 			}
 
