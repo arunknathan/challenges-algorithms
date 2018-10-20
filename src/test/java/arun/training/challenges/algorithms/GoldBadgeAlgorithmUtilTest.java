@@ -47,4 +47,10 @@ public class GoldBadgeAlgorithmUtilTest {
 		Assert.assertEquals(util.jumpingOnClouds(new int[] { 0, 0, 1, 0, 0, 1, 1, 0 }, 2), 92);
 		Assert.assertEquals(util.jumpingOnClouds(new int[] { 1, 1, 1, 0, 1, 1, 0, 0, 0, 0 }, 3), 78);
 	}
+
+	@Test
+	public void testFindDigits() {
+		Assert.assertEquals(util.findDigits(12), 2);
+		Assert.assertEquals(util.findDigits(1012), 3);
+	}
 }
